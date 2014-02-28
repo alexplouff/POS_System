@@ -12,52 +12,34 @@ import javax.swing.JOptionPane;
  */
 public class DiscountByQuantity implements DiscountStrategy{
     
-    private double quantity;
-    private double discountQtyTerm = 2;
     private double discount;
-    private double price;
+
     
-    public DiscountByQuantity(double quantity, double price){
-        this.setPrice(price);
-        this.setQuantity(quantity);
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }    
+    public DiscountByQuantity( double discount ){
+        setDiscount(discount);
+    }  
     
     public void setDiscount(double discount) {
-        this.discount = discount;
+       this.discount = discount;
     }
 
     public double getDiscount() {
         return discount;
     }
-    
-    public void setQuantity(double quantity) {
-        
-        this.quantity = quantity;
-    }
-    
-    public double getQuantity() {
-        return quantity;
-    }
 
     @Override
-    public double getTotalAfterDiscountedRate(){
-        double total = 0;  
- 
-        total = this.getPrice() * this.getQuantity() - getSavedAmount();
+    public double getTotalAfterDiscountedRate(double price, double qty){
+   
+        double totalBefore = price * qty;  
         
-        return total ;
+        double totalAfter = totalBefore - getSavedAmount(price, qty);
+        
+        return totalAfter ;
     }
     
-    public double getSavedAmount(){
-        return this.getPrice() * this.getQuantity() * this.getDiscount();
+    @Override
+    public double getSavedAmount(double price, double qty){
+        return (price * qty) * getDiscount() ;
     }
     
 }

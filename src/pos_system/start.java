@@ -14,12 +14,7 @@ public class start {
     
     public static void main(String[] args) {
         
-        DiscountByPercent percent = new DiscountByPercent(10.00, 10.00, .05);
-        DiscountByQuantity quantity = new DiscountByQuantity(10.00, 10.00);
-        
-        System.out.println(percent.getTotalAfterDiscountedRate());
-        System.out.println(percent.getSavedAmount());
-        percent.getTotalAfterDiscountedRate();
-        percent.getSavedAmount();
+
+
     }
 }
