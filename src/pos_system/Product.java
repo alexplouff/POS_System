@@ -48,12 +48,22 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-    public DiscountStrategy getDiscountStrategy() {
-        return discountStrategy;
+    public double getDiscountByPercent() {
+        return discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice);
+    }
+    
+    public double getDiscountByQty(){
+        return discountStrategy.getSavedAmount(productPrice, productPrice);
     }
 
     public void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
     
+    public static void main(String[] args) {
+       
+        Product product = new Product("RC Car", "A101", 10.00, new DiscountByPercent(.10));
+        
+
+    }
 }

@@ -22,27 +22,20 @@ public class DiscountByPercent implements DiscountStrategy {
         this.discountPercent = percent;
     }
     
-    public double getPercent(){
+    public double getDiscountPercent(){
         return discountPercent;
     }
     
     @Override
     public double getSavedAmount(double price, double qty){
             
-        return (qty * price) * getPercent();
+        return (qty * price) * getDiscountPercent();
     }
     
     @Override
     public double getTotalAfterDiscountedRate(double price, double qty){
         
         return (qty * price) - getSavedAmount(price, qty);
-    }
-    
-    public static void main(String[] args) {
-        DiscountByPercent percent = new DiscountByPercent( .05 );
-        
-        System.out.println(percent.getSavedAmount(10, 3));
-        System.out.println(percent.getTotalAfterDiscountedRate(10.00, 3));
     }
 
 }

@@ -29,17 +29,21 @@ public class DiscountByQuantity implements DiscountStrategy{
 
     @Override
     public double getTotalAfterDiscountedRate(double price, double qty){
-   
+
         double totalBefore = price * qty;  
         
         double totalAfter = totalBefore - getSavedAmount(price, qty);
         
         return totalAfter ;
-    }
+    
+}
     
     @Override
     public double getSavedAmount(double price, double qty){
         return (price * qty) * getDiscount() ;
     }
-    
 }
+
+
+
+

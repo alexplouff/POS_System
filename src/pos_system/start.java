@@ -13,8 +13,9 @@ package pos_system;
 public class start {
     
     public static void main(String[] args) {
+        DiscountStrategy discount = new DiscountByPercent(.1);
+        Product p = new Product("s", "s", 10, new DiscountByPercent(.1) );
         
-
-
+        System.out.println(p.getDescription());
     }
 }

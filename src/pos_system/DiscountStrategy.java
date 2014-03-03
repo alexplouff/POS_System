@@ -13,6 +13,5 @@ package pos_system;
 public interface DiscountStrategy {
     
     public abstract double getTotalAfterDiscountedRate(double price, double qty);
-    
     public abstract double getSavedAmount(double price, double qty);
 }
