@@ -36,6 +36,6 @@ public class DiscountByPercent implements DiscountStrategy {
     public double getTotalAfterDiscountedRate(double price, double qty){
         
         return (qty * price) - getSavedAmount(price, qty);
-    }
+    }    
 
 }

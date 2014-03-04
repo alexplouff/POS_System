@@ -13,22 +13,37 @@ package pos_system;
 public class LineItem {
     
     private Product product;
-    private String itemInfo;
-    private double total = product.getProductPrice();
-    
-    public LineItem(Product p, String info){
-        this.product = p;
-        this.itemInfo = info;
+    private double grandTotal;
+    private String thisLineItem;
+
+    public LineItem(String thisLineItem) {
+      
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public String getThisLineItem() {
+        return product.getProductInfo();
+    }
+
+    public void setThisLineItem(String thisLineItem) {
+        this.thisLineItem = thisLineItem;
     }
     
-    public void setProduct(Product p){
-        this.product = p;
+    public static void main(String[] args) {
+        LineItem l = new LineItem();
     }
     
-    public void setItemInfo(String info){
-        this.itemInfo = info;
-    }
-                     
+    
+    
+    
+                  
     
     
 }

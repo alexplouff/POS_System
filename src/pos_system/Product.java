@@ -12,24 +12,24 @@ package pos_system;
  */
 public class Product {
     
-    private String description;
+    private String productDescription;
     private String productID;
     private double productPrice;
     private DiscountStrategy discountStrategy;
 
     public Product(String description, String productID, double productPrice, DiscountStrategy discountStrategy) {
-        setDescription(description);
+        setProductDescription(description);
         setProductID(productID);
         setProductPrice(productPrice);
         setDiscountStrategy(discountStrategy);
     }
 
-    public String getDescription() {
-        return description;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductDescription(String description) {
+        this.productDescription = description;
     }
 
     public String getProductID() {
@@ -59,15 +59,18 @@ public class Product {
     public void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
+    
+    public String getProductInfo(){
+        return productDescription + productID + discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice) + new DiscountByPercent(.1);
+    }
 
     @Override
     public String toString() {
-        return "Product description: " + description + " ProductID: " + productID + " ProductPrice: " + productPrice + " DiscountStrategy: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 5);
+        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " DiscountStrategy: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 5);
     }
     
     public static void main(String[] args) {
         Product p = new Product("RC CAR", "RC CAR", 10.00, new DiscountByPercent(.1));
         System.out.println(p.toString());
-        System.out.println(p.getProductPrice());
     }
 }

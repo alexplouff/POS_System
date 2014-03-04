@@ -16,6 +16,5 @@ public class start {
         DiscountStrategy discount = new DiscountByPercent(.1);
         Product p = new Product("s", "s", 10, new DiscountByPercent(.1) );
         
-        System.out.println(p.getDescription());
     }
 }
