@@ -19,27 +19,34 @@ public class LineItem {
         this.product = product;
     }
     
-    public String getProductDescription() {
-        return product.getProductDescription();
+    public String getProductInfo(){
+        return product.getProductInfo();
     }
     
-    public String getProductID(){
-        return product.getProductID();
-    }
-    
-    public double getProductPrice(){
-        return product.getProductPrice();
-    }
-    
-    public double getAmountSaved(){
-        return ds.getSavedAmount(product.getProductPrice(), 5);
-    }
-    
-    public double getTotalAfterDiscount(){
-        return ds.getTotalAfterDiscountedRate(product.getProductPrice(), 5);
-    }
+//    public String getProductDescription() {
+//        return product.getProductDescription();
+//    }
+//    
+//    public String getProductID(){
+//        return product.getProductID();
+//    }
+//    
+//    public double getProductPrice(){
+//        return product.getProductPrice();
+//    }
+//    
+//    public double getAmountSaved(){
+//        return ds.getSavedAmount(product.getProductPrice(), 5);
+//    }
+//    
+//    public double getTotalAfterDiscount(){
+//        return ds.getTotalAfterDiscountedRate(product.getProductPrice(), 5);
+//    }
     
     public static void main(String[] args) {
-        LineItem l = new LineItem(  );
+        Product RcCar = new Product("RC Car", "A101", 10.99, new DiscountByPercent(.1));
+        LineItem l = new LineItem( RcCar );
+        
+        System.out.println(RcCar.getProductInfo());
     }
 }

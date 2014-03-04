@@ -61,12 +61,12 @@ public class Product {
     }
     
     public String getProductInfo(){
-        return productDescription + productID + discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice) + new DiscountByPercent(.1);
+        return productDescription + " " + productID + discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice) + new DiscountByPercent(.1);
     }
 
     @Override
     public String toString() {
-        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " DiscountStrategy: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 5);
+        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " Total After Discount: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 3);
     }
     
     public static void main(String[] args) {
