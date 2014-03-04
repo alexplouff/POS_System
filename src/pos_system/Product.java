@@ -52,6 +52,10 @@ public class Product {
         this.discountStrategy = discountStrategy;
     }
     
+    public DiscountStrategy getDiscount(){
+        return discountStrategy;
+    }
+    
     
 
     public double getDiscountByPercent(double qty) {
