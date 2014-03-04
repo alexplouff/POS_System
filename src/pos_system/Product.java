@@ -23,54 +23,60 @@ public class Product {
         setProductPrice(productPrice);
         setDiscountStrategy(discountStrategy);
     }
-
+    
+    public void setProductDescription(String description) {
+        this.productDescription = description;
+    }
+    
     public String getProductDescription() {
         return productDescription;
     }
-
-    public void setProductDescription(String description) {
-        this.productDescription = description;
+    
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
     public String getProductID() {
         return productID;
     }
-
-    public void setProductID(String productID) {
-        this.productID = productID;
+    
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
     public double getProductPrice() {
         return productPrice;
     }
-
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public double getDiscountByPercent() {
-        return discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice);
-    }
     
-    public double getDiscountByQty(){
-        return discountStrategy.getSavedAmount(productPrice, productPrice);
-    }
-
     public void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
     
-    public String getProductInfo(){
-        return productDescription + " " + productID + discountStrategy.getTotalAfterDiscountedRate(productPrice, productPrice) + new DiscountByPercent(.1);
-    }
+    
 
-    @Override
-    public String toString() {
-        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " Total After Discount: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 3);
+    public double getDiscountByPercent(double qty) {
+        return discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
     }
     
+    public double getDiscountByQty(double qty){
+        return discountStrategy.getSavedAmount(productPrice, qty);
+    }
+    
+    public String getProductInfo(){
+        return productDescription + " " + productID + " " + productPrice;
+    }
+    
+    public String getProductInfoWithDiscountedTotal(double qty){
+        return getProductInfo() + discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " Total After Discount: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 3);
+//    }
+    
     public static void main(String[] args) {
-        Product p = new Product("RC CAR", "RC CAR", 10.00, new DiscountByPercent(.1));
-        System.out.println(p.toString());
+        Product p = new Product("RcCAR", "A101", 10.00, new DiscountByPercent(.1));
+        System.out.println(p.getProductInfoWithDiscountedTotal(5));
     }
 }

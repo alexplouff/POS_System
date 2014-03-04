@@ -20,7 +20,7 @@ public class LineItem {
     }
     
     public String getProductInfo(){
-        return product.getProductInfo();
+        return product();
     }
     
 //    public String getProductDescription() {
