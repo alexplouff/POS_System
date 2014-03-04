@@ -34,27 +34,10 @@ public class ProductDatabase {
     }
     
 }
-   
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //private Product product;
-    private String [] products;
+//    private String [] products;
 //    public Product getProduct() {
 //        return product;
 //    }
@@ -83,4 +66,4 @@ public class ProductDatabase {
 //    }
     
     
-}
+
