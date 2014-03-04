@@ -59,11 +59,15 @@ public class Product {
     public void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
+
+    @Override
+    public String toString() {
+        return "Product description: " + description + " ProductID: " + productID + " ProductPrice: " + productPrice + " DiscountStrategy: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 5);
+    }
     
     public static void main(String[] args) {
-       
-        Product product = new Product("RC Car", "A101", 10.00, new DiscountByPercent(.10));
-        
-
+        Product p = new Product("RC CAR", "RC CAR", 10.00, new DiscountByPercent(.1));
+        System.out.println(p.toString());
+        System.out.println(p.getProductPrice());
     }
 }

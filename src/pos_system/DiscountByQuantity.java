@@ -5,7 +5,6 @@
  */
 
 package pos_system;
-import javax.swing.JOptionPane;
 /**
  *
  * @author Alex
@@ -41,6 +40,12 @@ public class DiscountByQuantity implements DiscountStrategy{
     @Override
     public double getSavedAmount(double price, double qty){
         return (price * qty) * getDiscount() ;
+    }
+    
+    public static void main(String[] args) {
+        DiscountStrategy d = new DiscountByQuantity(.10);
+        
+        System.out.println(d.getTotalAfterDiscountedRate(50.00, 5));
     }
 }
 
