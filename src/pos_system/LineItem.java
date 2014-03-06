@@ -10,27 +10,24 @@ public class LineItem {
     
     private Product product;
     private double qty;
-
-    public double getQty() {
-        return qty;
-    }
-
-    public final void setQty(double qty) {
-        this.qty = qty;
-    }
+    
     
     public LineItem(Product product, double qty){
         setProduct(product);
         setQty(qty);
     }
 
+    public final void setQty(double qty) {
+        this.qty = qty;
+    }
+
+    public double getQty() {
+        return qty;
+    }
+ 
     public final void setProduct(Product product) {
         this.product = product;
     }
-    
-//    public String getProductInfo(){
-//        return product.getProductInfo();
-//    }
     
     public String getProductDescription() {
         return product.getProductDescription();
@@ -56,13 +53,13 @@ public class LineItem {
         return product.getProductPrice() * qty;
     }
     
-//    public String toString() {
-//        final String SPACE = " ";
-//        return this.getProductID() + SPACE + this.getProductDescription() +
-//                SPACE + this.getProductPrice() + SPACE + this.getQty() + getSubtotal() + 
-//                SPACE + this.getAmountSaved();
-//    }
-//    
+    public String toString() {
+        final String SPACE = " ";
+        return this.getProductID() + SPACE + this.getProductDescription() +
+                SPACE + this.getProductPrice() + SPACE + this.getQty() + "sub "+getSubtotal() + 
+                SPACE + this.getAmountSaved();
+    }
+    
     public static void main(String[] args) {
         Product RcCar = new Product("RC Car", "A101", 10.99, new DiscountByPercent(.1));
         LineItem l = new LineItem( RcCar, 2 );

@@ -13,18 +13,29 @@ package pos_system;
 public class Customer {
     
     
-    private static String customer_Name;
+    private String customerName;
+    private String customerID;
+    
+    
 
-    public Customer(String customerName) {
+    public Customer(String customerID, String customerName) {
+        setCustomerID(customerID);
         setCustomerName(customerName);
     }
     
-    public void setCustomerName(String customerName){
-        this.customer_Name = customerName;
+    public final void setCustomerID(String customerID){
+        this.customerID = customerID;
+    }    
+    
+    public final String getCustomerID(){
+        return customerID;
+    }
+    public final void setCustomerName(String customerName){
+        this.customerName = customerName;
     }
     
-    public String getCustomerName(){
-        return customer_Name;
+    public final String getCustomerName(){
+        return customerName;
     }
     
     

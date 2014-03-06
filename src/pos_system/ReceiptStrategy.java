@@ -10,11 +10,9 @@ package pos_system;
  *
  * @author Alex
  */
-public class start {
+public interface ReceiptStrategy {
     
-    public static void main(String[] args) {
-        DiscountStrategy discount = new DiscountByPercent(.1);
-        Product p = new Product("s", "s", 10, new DiscountByPercent(.1) );
-        
-    }
+    public void setReceiptLineItem(LineItem li);
+    
+    public LineItem getNextLineITem();
 }

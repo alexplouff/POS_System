@@ -56,8 +56,6 @@ public class Product {
         return discountStrategy;
     }
     
-    
-
     public double getDiscountByPercent(double qty) {
         return discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
     }
@@ -73,14 +71,11 @@ public class Product {
     public String getProductInfoWithDiscountedTotal(double qty){
         return getProductInfo() + discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
     }
-
-//    @Override
-//    public String toString() {
-//        return "Product description: " + productDescription + " ProductID: " + productID + " ProductPrice: " + productPrice + " Total After Discount: " + discountStrategy.getTotalAfterDiscountedRate(10.00, 3);
-//    }
     
     public static void main(String[] args) {
         Product p = new Product("RcCAR", "A101", 10.00, new DiscountByPercent(.1));
         System.out.println(p.getProductInfoWithDiscountedTotal(5));
+        
+        
     }
 }
