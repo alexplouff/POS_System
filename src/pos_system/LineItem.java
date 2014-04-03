@@ -33,7 +33,7 @@ public class LineItem {
         return product.getProductDescription();
     }
     
-    public String getProductID(){
+    public String getProductID() {
         return product.getProductID();
     }
     
@@ -46,24 +46,27 @@ public class LineItem {
     }
     
     public double getTotalAfterDiscount(){
-        return product.getDiscount().getTotalAfterDiscountedRate(product.getProductPrice(), 5);
+        return product.getDiscount().getTotalAfterDiscount(product.getProductPrice(), 5);
     }
     
     public double getSubtotal(){
         return product.getProductPrice() * qty;
     }
     
+    @Override
     public String toString() {
         final String SPACE = " ";
-        return this.getProductID() + SPACE + this.getProductDescription() +
-                SPACE + this.getProductPrice() + SPACE + this.getQty() + "sub "+getSubtotal() + 
-                SPACE + this.getAmountSaved();
+        return "Product ID: " + this.getProductID() + SPACE + this.getProductDescription() +
+                "\n" + this.getProductPrice() + "Quantity: " + this.getQty() +
+                "\nSubTotal: " + getSubtotal() + 
+                "\nAmountSaved: " + this.getAmountSaved();
     }
     
     public static void main(String[] args) {
         Product RcCar = new Product("RC Car", "A101", 10.99, new DiscountByPercent(.1));
         LineItem l = new LineItem( RcCar, 2 );
+        System.out.println(l);
+        System.out.println("");
         
-        System.out.println(l.toString());
     } }
 

@@ -33,9 +33,14 @@ public class DiscountByPercent implements DiscountStrategy {
     }
     
     @Override
-    public double getTotalAfterDiscountedRate(double price, double qty){
+    public double getTotalAfterDiscount(double price, double qty){
         
         return (qty * price) - getSavedAmount(price, qty);
     }    
+    
+    public static void main(String[] args) {
+        DiscountByPercent d = new DiscountByPercent(.1);
+        System.out.println(d.getTotalAfterDiscount(10, 2));
+    }
 
 }

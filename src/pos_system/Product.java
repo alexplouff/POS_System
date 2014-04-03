@@ -12,14 +12,16 @@ package pos_system;
  */
 public class Product {
     
+    private static final String SPACE = " ";
+    
     private String productDescription;
     private String productID;
     private double productPrice;
     private DiscountStrategy discountStrategy;
 
-    public Product(String description, String productID, double productPrice, DiscountStrategy discountStrategy) {
-        setProductDescription(description);
+    public Product(String productID, String description, double productPrice, DiscountStrategy discountStrategy) {
         setProductID(productID);
+        setProductDescription(description);
         setProductPrice(productPrice);
         setDiscountStrategy(discountStrategy);
     }
@@ -57,7 +59,7 @@ public class Product {
     }
     
     public double getDiscountByPercent(double qty) {
-        return discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
+        return discountStrategy.getTotalAfterDiscount(productPrice, qty);
     }
     
     public double getDiscountByQty(double qty){
@@ -69,12 +71,15 @@ public class Product {
     }
     
     public String getProductInfoWithDiscountedTotal(double qty){
-        return getProductInfo() + discountStrategy.getTotalAfterDiscountedRate(productPrice, qty);
+        return "Product ID: " + getProductID() + SPACE + getProductDescription() +
+                 " \nPrice: " + getProductPrice() +
+                "\n" + "Total After Discount: " + 
+                discountStrategy.getTotalAfterDiscount(productPrice, qty);
     }
     
     public static void main(String[] args) {
-        Product p = new Product("RcCAR", "A101", 10.00, new DiscountByPercent(.1));
-        System.out.println(p.getProductInfoWithDiscountedTotal(5));
+        Product p = new Product("A101", "RcCAR", 20.00, new DiscountByPercent(.1));
+        System.out.println(p.getProductInfoWithDiscountedTotal(1));
         
         
     }

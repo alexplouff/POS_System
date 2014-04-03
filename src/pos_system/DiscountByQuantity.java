@@ -27,7 +27,7 @@ public class DiscountByQuantity implements DiscountStrategy{
     }
 
     @Override
-    public double getTotalAfterDiscountedRate(double price, double qty){
+    public double getTotalAfterDiscount(double price, double qty){
 
         double totalBefore = price * qty;  
         
@@ -45,7 +45,7 @@ public class DiscountByQuantity implements DiscountStrategy{
     public static void main(String[] args) {
         DiscountStrategy d = new DiscountByQuantity(.10);
         
-        System.out.println(d.getTotalAfterDiscountedRate(50.00, 5));
+        System.out.println(d.getTotalAfterDiscount(50.00, 5));
     }
 }
 

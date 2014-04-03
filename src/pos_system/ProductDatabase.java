@@ -1,21 +1,19 @@
-
 package pos_system;
 
 /**
- * 
+ *
  * @author Alex
  */
-public class ProductDatabase {
-   
-    
+public class ProductDatabase implements StorageStrategy {
+
     private Customer[] customers = {
-    
-       new Customer ( "Cust101", "Alex Plouff" ),
-       new Customer ( "Cust102", "Sergei Palksinov"),
-       new Customer ( "Cust103", "Mother Goose "),
-       new Customer ( "Cust104", "Irritated Customer" )
+        new Customer("Cust101", "Alex Plouff"),
+        new Customer("Cust102", "Sergei Palksinov"),
+        new Customer("Cust103", "Mother Goose "),
+        new Customer("Cust104", "Irritated Customer")
     };
-       
+
+    @Override
     public final Customer findCustomer(final String customerID) {
         Customer customer = null;
         // validation is needed for method parameter
@@ -31,18 +29,15 @@ public class ProductDatabase {
         }
 
         return customer;
-    }   
-    
-    
+    }
     private final Product[] products = {
-       new Product("A101", "RC Car", 19.99, new DiscountByPercent(.5)),
-       new Product("B101", "Garbage", 69.99, new DiscountByQuantity(3)),
-       new Product("C101", "Super Garbage", 89.99, new DiscountByPercent(.3)),
-       new Product("D101", "Super Duper Garbage", 99.99, new DiscountByQuantity(5))  
+        new Product("A101", "RC Car", 19.99, new DiscountByPercent(.1)),
+        new Product("B101", "Garbage", 69.99, new DiscountByQuantity(3)),
+        new Product("C101", "Super Garbage", 89.99, new DiscountByPercent(.3)),
+        new Product("D101", "Super Duper Garbage", 99.99, new DiscountByQuantity(5))
     };
-    
-    
-    
+
+    @Override
     public final Product findProduct(final String prodId) {
         Product product = null;
         // validation is needed for method parameter
@@ -61,19 +56,12 @@ public class ProductDatabase {
         return product;
     }
     
-    //Nececessary ??? Need one for product??
-    public Customer[] getCustomers() {
-        return customers;
-    }
 
-    public void setCustomers(Customer[] customers) {
-        this.customers = customers;
-    }
-    
+
     public static void main(String[] args) {
         ProductDatabase d = new ProductDatabase();
-        System.out.println(d.findCustomer("Cust101"));
-        System.out.println(d.getCustomers());
-       // System.out.println(d.findProduct("A101"));
+        System.out.println(d.findCustomer("Cust104").getCustomerName());
+        System.out.println(d.findProduct("A101").getProductInfoWithDiscountedTotal(2));
+        // System.out.println(d.findProduct("A101"));
     }
 }

@@ -37,6 +37,12 @@ public class Customer {
     public final String getCustomerName(){
         return customerName;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "customerName=" + customerName + ", customerID=" + customerID + '}';
+    }
+    
     
     
 }
