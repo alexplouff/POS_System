@@ -55,13 +55,4 @@ public class ProductDatabase implements StorageStrategy {
 
         return product;
     }
-    
-
-
-    public static void main(String[] args) {
-        ProductDatabase d = new ProductDatabase();
-        System.out.println(d.findCustomer("Cust104").getCustomerName());
-        System.out.println(d.findProduct("A101").getProductInfoWithDiscountedTotal(2));
-        // System.out.println(d.findProduct("A101"));
-    }
 }

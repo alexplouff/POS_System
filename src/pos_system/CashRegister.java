@@ -11,7 +11,7 @@ package pos_system;
  */
 public class CashRegister {
 
-    private final StorageStrategy d = new ProductDatabase();
+    private final StorageStrategy storage = new ProductDatabase();
     private Receipt receipt;
     
     public CashRegister() {
@@ -20,10 +20,10 @@ public class CashRegister {
 
     public void startSale(String customerID) throws IllegalArgumentException {
         
-        if ( customerID.equals("") || customerID.isEmpty() || customerID.length() != 4)
-            throw new IllegalArgumentException( "CustomerID must Not Be Empty and Contain 4 Characters ");
+        if ( customerID.equals("") || customerID.isEmpty() || customerID.length() != 7)
+            throw new IllegalArgumentException( "CustomerID must Not Be Empty and Contain 7 Characters ");
         
-        receipt = new Receipt(customerID, d);
+        receipt = new Receipt(customerID, storage);
     }
    
 
@@ -36,7 +36,7 @@ public class CashRegister {
         receipt.addItemToOrder(productID, quantity);
     }
     
-    public void getTotal() {
+    public void setTotal() {
         System.out.println(receipt);
     }
 }

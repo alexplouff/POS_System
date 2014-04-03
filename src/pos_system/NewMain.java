@@ -20,10 +20,10 @@ public class NewMain {
         
         try{
         register.startSale("Cust101");
-        register.addItem("A101", 2);
+        register.addItem("A101", 0);
         register.addItem("B101", 1);
-        register.getTotal();
-        } catch( IllegalArgumentException iae){
+        register.setTotal();
+        } catch (IllegalArgumentException iae){
             iae.getMessage();
         }
     }

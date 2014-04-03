@@ -62,30 +62,10 @@ public class Receipt {
     
     @Override
     public String toString() {
-        StringBuilder sb = null;
+        StringBuilder sb = new StringBuilder();
         for (LineItem item : lineItems) {
             sb.append(item).append('\n');
         }
         return sb.toString();
-    }
-    
-    
-    
-    
-    public static void main(String[] args) {
-        StorageStrategy d = new ProductDatabase();
-        Receipt receipt = new Receipt("Cust101",d);
-        receipt.addItemToOrder( "A101" , 2 );
-        receipt.addItemToOrder( "B101", 5 );
-        
-        LineItem[] testItems = receipt.getLineItems();
-        for(LineItem li : testItems) {
-            String desc = li.getProductDescription();
-            System.out.println(desc);
-        }
-        
-               
-       
-        
     }
 }

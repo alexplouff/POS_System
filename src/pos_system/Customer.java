@@ -12,11 +12,8 @@ package pos_system;
  */
 public class Customer {
     
-    
     private String customerName;
     private String customerID;
-    
-    
 
     public Customer(String customerID, String customerName) {
         setCustomerID(customerID);
@@ -27,7 +24,7 @@ public class Customer {
         this.customerID = customerID;
     }    
     
-    public final String getCustomerID(){
+    public String getCustomerID(){
         return customerID;
     }
     public final void setCustomerName(String customerName){
